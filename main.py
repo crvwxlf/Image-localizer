@@ -84,11 +84,11 @@ class MainWindow(QMainWindow):
         try:
             self.lat = imgData.get('Latitude')
             self.long = imgData.get('Longitude')
-            if self.lat and self.long != None or self.lat and self.long != '':
+            if self.lat and self.long != None:
+                self.viewOnMapBtn.setEnabled(True)
                 self.logBox.insertPlainText(f"GPS data found : \nLatitude : {self.lat}\nLongitude : {self.long}" + "\n")
-                self.viewOnMapBtn.setEnabled = True
-            elif self.lat and self.long == '':
-                self.viewOnMapBtn.setEnabled = False
+            else:
+                self.viewOnMapBtn.setEnabled(False)
                 self.logBox.insertPlainText(f"GPS data not found\nSelect other image :/" + "\n")
 
         except Exception:
