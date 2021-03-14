@@ -84,7 +84,8 @@ class MainWindow(QMainWindow):
         try:
             self.lat = imgData.get('Latitude')
             self.long = imgData.get('Longitude')
-            if self.lat and self.long != None:
+
+            if self.lat and self.long != None or type(self.lat) and type(self.long) == float:
                 self.viewOnMapBtn.setEnabled(True)
                 self.logBox.insertPlainText(f"GPS data found : \nLatitude : {self.lat}\nLongitude : {self.long}" + "\n")
             else:
